@@ -50,6 +50,11 @@ print(f"⏸️ Se detuvo tras {early_stop.stopped_epoch} epochs.")
 # 📊 8. Graficar la evolución del entrenamiento
 plt.figure(figsize=(10,5))
 
+# 📊 9. Evaluar el modelo en el conjunto de prueba
+test_loss, test_acc = modelo.model.evaluate(x_test_gray, y_test_cat, verbose=0)
+print(f"📌 Precisión final en test: {test_acc:.4f} - Pérdida: {test_loss:.4f}")
+
+
 # Precisión
 plt.subplot(1,2,1)
 plt.plot(history.history['accuracy'], label='Entrenamiento')
